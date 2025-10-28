@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+  --background: 220 25% 97%;
+  --foreground: 220 30% 15%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 220 30% 15%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 30% 15%;
+
+  /* Primary – Corporate Blue */
+  --primary: 220 75% 50%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary – Soft Blue Accent */
+  --secondary: 200 65% 55%;
+  --secondary-foreground: 0 0% 100%;
+
+  /* Muted – Light Neutrals */
+  --muted: 220 20% 92%;
+  --muted-foreground: 220 15% 45%;
+
+  /* Accent – Sky Blue */
+  --accent: 200 80% 65%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Alerts – Standard Red */
+  --destructive: 0 70% 55%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Borders & Inputs */
+  --border: 220 20% 88%;
+  --input: 220 20% 90%;
+  --ring: 220 80% 50%;
+
+  --radius: 0.75rem;
+
+  /* ✅ Gradients and shadows untouched */
+  --gradient-warm: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(180 40% 96%) 100%);
+  --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 30% 99%) 100%);
+  
+  --shadow-soft: 0 2px 20px -4px hsl(220 20% 80% / 0.3);
+  --shadow-hover: 0 4px 30px -4px hsl(180 65% 55% / 0.25);
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Sidebar */
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 220 40% 20%;
+
+  --sidebar-primary: 220 75% 50%;
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  --sidebar-accent: 220 20% 94%;
+  --sidebar-accent-foreground: 220 40% 20%;
+
+  --sidebar-border: 220 15% 88%;
+  --sidebar-ring: 220 75% 50%;
+}
+
+
+.dark {
+  --background: 220 35% 6%;
+  --foreground: 220 30% 95%;
+
+  --card: 220 35% 8%;
+  --card-foreground: 220 30% 95%;
+
+  --popover: 220 35% 8%;
+  --popover-foreground: 220 30% 95%;
+
+  /* Primary – Bright Blue */
+  --primary: 220 80% 60%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary – Soft Cyan Blue */
+  --secondary: 200 70% 55%;
+  --secondary-foreground: 0 0% 100%;
+
+  /* Muted – Dark Neutral */
+  --muted: 220 25% 15%;
+  --muted-foreground: 220 15% 70%;
+
+  /* Accent – Cool Blue */
+  --accent: 210 70% 60%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Alerts */
+  --destructive: 0 70% 45%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Fields & Borders */
+  --border: 220 25% 18%;
+  --input: 220 25% 18%;
+  --ring: 220 75% 65%;
+
+  /* Sidebar – Blue UI */
+  --sidebar-background: 220 35% 8%;
+  --sidebar-foreground: 220 30% 95%;
+
+  --sidebar-primary: 220 80% 60%;
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  --sidebar-accent: 220 22% 14%;
+  --sidebar-accent-foreground: 220 30% 95%;
+
+  --sidebar-border: 220 22% 14%;
+  --sidebar-ring: 220 80% 60%;
+}
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 50%, hsl(180 40% 96%) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Editor styles for lists - bullets move with text alignment */
+  [contenteditable="true"] ul,
+  [contenteditable="true"] ol {
+    list-style-position: inside;
+    margin: 1rem 0;
+  }
+
+  [contenteditable="true"] ul {
+    list-style-type: disc;
+  }
+  
+  [contenteditable="true"] ol {
+    list-style-type: decimal;
+  }
+  
+  [contenteditable="true"] li {
+    display: list-item;
+    margin: 0.5rem 0;
+  }
+  
+  [contenteditable="true"] p {
+    margin: 1rem 0;
+  }
+
+  /* Resizable image wrapper styles */
+  .resizable-image-wrapper {
+    transition: box-shadow 0.2s ease;
+  }
+
+  .resizable-image-wrapper:hover {
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.3);
+  }
+
+  .resizable-image-wrapper .resize-handle {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .resizable-image-wrapper:hover .resize-handle {
+    opacity: 1;
+  }
+}
